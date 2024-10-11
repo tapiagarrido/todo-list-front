@@ -33,7 +33,7 @@
 
 <script setup>
 import { modificarTarea } from '@/api/todoListService';
-import { defineProps, defineEmits } from 'vue';
+import { defineProps, defineEmits, ref } from 'vue';
 import { useToast } from 'vue-toastification';
 
 // definimos variables para emitir y utilizar la data recibida desde el componente padre
@@ -45,9 +45,32 @@ const props = defineProps({
         required: true
     }
 });
+const errors = ref({});
+
+
+// Función para validar los campos
+const validarFormulario = () => {
+    errors.value = {};
+
+    if (!props.tarea.titulo) {
+        errors.value.titulo = 'El título es obligatorio.';
+    }
+
+    if (!props.tarea.descripcion) {
+        errors.value.descripcion = 'La descripción es obligatoria.';
+    }
+
+    if (errors.value.titulo) toast.error(errors.value.titulo);
+    if (errors.value.descripcion) toast.error(errors.value.descripcion);
+
+    return Object.keys(errors.value).length === 0;
+};
 
 // funcion para almacenar cambios que no tienen que ver con completar tarea
 const almacenarCambios = async () => {
+    // si hay errores no se podra continuar a la api
+    if (!validarFormulario()) return;
+
     try {
         const response = await modificarTarea(props.tarea);
         if (response.msg) {

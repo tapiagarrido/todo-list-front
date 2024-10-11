@@ -1,16 +1,16 @@
 <template>
     <div class="md:w-full xl:w-3/6 mx-auto h-[660px] p-2 rounded-3xl shadow-xl bg-slate-100">
         <h1 class="text-2xl text-center font-bold uppercase py-4">Gestor de Tareas</h1>
-        <div class="flex flex-col gap-2 w-full my-6 px-4 scrollTarea" @scroll="llamadaScroll">
+        <div class="px-4 text-white text-start">
+            <button class="px-4 shadow-lg bg-slate-600 hover:bg-slate-900 py-2 rounded-lg uppercase text-sm" @click="modalGuardar=!modalGuardar">nueva Tarea 
+                <span class="pi pi-plus"></span>
+            </button>
+        </div>
+        <div class="flex flex-col gap-2 w-full  my-6 px-4 scrollTarea" @scroll="llamadaScroll">
             <!--
                 <h3 class="text-center text-amber-700 font-bold">Tareas Pendientes</h3>
             -->
             <CardListTask v-for="tarea in tareas" :key="tarea.id" :tarea="tarea" @refrescarLista="reiniciarLista" />
-        </div>
-        <div class="px-4 text-white text-end">
-            <button class="px-4 bg-slate-600 hover:bg-slate-900 py-2 rounded-lg uppercase text-sm" @click="modalGuardar=!modalGuardar">nueva Tarea 
-                <span class="pi pi-plus"></span>
-            </button>
         </div>
     </div>
 

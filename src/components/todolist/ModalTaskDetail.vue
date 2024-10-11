@@ -39,7 +39,7 @@
         </div>
     </div>
 
-    <ModalEditar v-if="modalEditar" @cerrarModal="modalEditar = false" :tarea="tarea" />
+    <ModalEditar v-if="modalEditar" @cerrarModal="modalEditar = false" :tarea="tarea" @actualizarTarea="()=>emit('refrescarModal')"/>
     <ModalEliminar v-if="modalBorrar" @cerrarModal="modalBorrar = false" @tareaEliminada="()=>{emit('cerrarModal'), emit('refrescarModal')}"
         :tarea="tarea" />
 </template>

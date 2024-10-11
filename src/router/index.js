@@ -11,6 +11,10 @@ const router = createRouter({
       component: MainLayout,
       children:[
         {
+          path:'',
+          redirect: 'todo-list'
+        },
+        {
           path:'todo-list',
           name:'todo-list',
           component:TodoList
