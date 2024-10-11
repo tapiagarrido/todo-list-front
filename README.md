@@ -1,35 +1,47 @@
-# .
+```markdown
+# TODO LIST FRONTEND
 
-This template should help get you started developing with Vue 3 in Vite.
+Bienvenido a la instalación del Cliente
 
-## Recommended IDE Setup
+## Primeros Pasos
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### 1. Clonar el Repositorio desde Github
 
-## Customize configuration
+```bash
+https://github.com/tapiagarrido/todo-list-front.git
+```
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+### 2. Acceder a la Carpeta `todo-list-front`
 
-## Project Setup
+```bash
+cd todo-list-front
+```
 
-```sh
+### 3. Descargar Dependencias
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 4. Generar las Variables de Entorno; prestar atencion en el puerto que decida utilizar ya que debe ser el que se asocie al whitelist en el backend y lo mismo para el url del servidor
 
-```sh
+```bash
+cp .env.template .env
+```
+
+### 5. probar el cliente en modo desarrollo
+
+```bash
 npm run dev
 ```
+### 6. si desea utilizar de manera productiva, genere el dist
 
-### Compile and Minify for Production
-
-```sh
+```bash
 npm run build
 ```
+con esto tendra los archivos escenciales para generar un deploy minimo.
 
-### Lint with [ESLint](https://eslint.org/)
+## Contacto
 
-```sh
-npm run lint
-```
+Para cualquier duda o consulta, por favor contacta con el equipo de desarrollo.
+
